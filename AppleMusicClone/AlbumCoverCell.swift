@@ -12,11 +12,7 @@ struct AlbumCoverCell: View {
         Image("theDoors").resizable().frame(width: 250, height: 250)
             .cornerRadius(10)
             .shadow(color: Color.black, radius: 15, x: 3, y: 3)
-//            .overlay(RoundedRectangle(cornerRadius: 10))
-//            .stroke(Color.primary, lineWidth: 10))
-//            .resizable()
-//            .scaledToFit()
-//            .frame(width: 200, height: 200, alignment: .center)
+    
     }
 }
 

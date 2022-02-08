@@ -14,7 +14,6 @@
 		3C56ED6227B1BB5300DF77BE /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56ED6127B1BB5300DF77BE /* AlbumView.swift */; };
 		3C56ED6427B1BC2700DF77BE /* AlbumCoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56ED6327B1BC2700DF77BE /* AlbumCoverCell.swift */; };
 		3C56ED6627B1BC9D00DF77BE /* AlbumRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56ED6527B1BC9D00DF77BE /* AlbumRessources.swift */; };
-		3C56ED6A27B1C1A600DF77BE /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56ED6927B1C1A600DF77BE /* BackgroundColor.swift */; };
 		3C56ED6C27B2D53100DF77BE /* BackgroundButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56ED6B27B2D53100DF77BE /* BackgroundButtonItem.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 		3C56ED6127B1BB5300DF77BE /* AlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		3C56ED6327B1BC2700DF77BE /* AlbumCoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCoverCell.swift; sourceTree = "<group>"; };
 		3C56ED6527B1BC9D00DF77BE /* AlbumRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRessources.swift; sourceTree = "<group>"; };
-		3C56ED6927B1C1A600DF77BE /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		3C56ED6B27B2D53100DF77BE /* BackgroundButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundButtonItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +64,6 @@
 				3C56ED6127B1BB5300DF77BE /* AlbumView.swift */,
 				3C56ED6B27B2D53100DF77BE /* BackgroundButtonItem.swift */,
 				3C56ED6527B1BC9D00DF77BE /* AlbumRessources.swift */,
-				3C56ED6927B1C1A600DF77BE /* BackgroundColor.swift */,
 				3C56ED6327B1BC2700DF77BE /* AlbumCoverCell.swift */,
 				3C56ED5727B1B9EC00DF77BE /* Assets.xcassets */,
 				3C56ED5927B1B9EC00DF77BE /* Preview Content */,
@@ -153,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C56ED6227B1BB5300DF77BE /* AlbumView.swift in Sources */,
-				3C56ED6A27B1C1A600DF77BE /* BackgroundColor.swift in Sources */,
 				3C56ED6C27B2D53100DF77BE /* BackgroundButtonItem.swift in Sources */,
 				3C56ED6627B1BC9D00DF77BE /* AlbumRessources.swift in Sources */,
 				3C56ED5627B1B9EB00DF77BE /* ContentView.swift in Sources */,

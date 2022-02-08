@@ -9,16 +9,18 @@ import SwiftUI
 
 struct AlbumView: View {
     @State private var isPlaying = false
-    
-    var checkBox: Image {
-        Image(systemName: isPlaying ? "plus" : "play.fill")
-    }
-    
+    @State private var isShowingRed = false
     var body: some View {
-        ScrollView {
-            VStack(alignment: .center) {
-                VStack {
-                    AlbumCoverCell()
+        NavigationView {
+            ScrollView {
+                VStack(alignment: .center) {
+                    if isShowingRed {
+                        AlbumCoverCell()
+//                            .transition(.asymmetric(insertion: .identity, removal: .slide))
+                            .transition(.scale)
+                    }else {
+                        AlbumCoverCell()
+                    }
                     Text("The Doors")
                         .padding(.top, 7)
                         .padding(.bottom, 1)
@@ -33,6 +35,9 @@ struct AlbumView: View {
                     HStack {
                         Button(action: {
                             self.isPlaying.toggle()
+                            withAnimation(.easeOut(duration: 1.0)) {
+                                isShowingRed.toggle()
+                            }
                         } , label: { Label(isPlaying ? "Pause" : "Lire", systemImage: isPlaying ? "pause.fill" : "play.fill")
                         })
                             .buttonStyle()
@@ -45,47 +50,43 @@ struct AlbumView: View {
                         })
                             .buttonStyle()
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
-                }
-                VStack {
-                    ForEach(musics) { music in
-                        VStack {
-                            HStack {
-                                Text(String(music.musicNumber))
-                                    .foregroundColor(.secondary)
-                                Text(music.musicName)
-                                Spacer()
-                                Image(systemName: "ellipsis")
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 20)
+                    
+                    VStack {
+                        ForEach(musics) { music in
+                            VStack {
+                                HStack {
+                                    Text(String(music.musicNumber))
+                                        .foregroundColor(.secondary)
+                                    Text(music.musicName)
+                                    Spacer()
+                                    Image(systemName: "ellipsis")
+                                }
+                                Divider()
                             }
-                            Divider()
+                            .padding(.vertical, 4)
+                            .padding(.horizontal)
                         }
-                        .padding(.vertical, 4)
-                        .padding(.horizontal)
                     }
-                }
-                
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button {
-                        } label: {
-                            ButtonLabel(image: "plus")
-                        }
-                        
-                        Button {
-                        } label: {
-                            Image(systemName: "ellipsis")
-                                .padding(12.5)
-                                .font(.callout.bold())
-                                .foregroundColor(.pink)
-                                .background(BackgroundButtonItem())
+                    .toolbar {
+                        ToolbarItemGroup(placement: .navigationBarTrailing) {
+                            Button {
+                            } label: {
+                                ButtonLabel(image: "plus")
+                            }
+                            Button {
+                            } label: {
+                                Image(systemName: "ellipsis")
+                                    .padding(12.5)
+                                    .font(.callout.bold())
+                                    .foregroundColor(.pink)
+                                    .background(BackgroundButtonItem())
+                            }
                         }
                     }
                 }
-                
             }
-            
-            .navigationBarBackButtonHidden(true)
         }
     }
 }
@@ -141,7 +142,7 @@ struct ButtonStyling: ViewModifier {
         content
             .foregroundColor(Color.pink)
             .font(.title3)
-            .frame(width: 170, height: 50)
+            .frame(width: 165, height: 50)
             .background(CustomColor.myColor)
             .cornerRadius(12)
     }
