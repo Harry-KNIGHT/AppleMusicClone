@@ -9,18 +9,23 @@ import SwiftUI
 
 struct AlbumView: View {
     @State private var isPlaying = false
-    @State private var isShowingRed = false
+    @State private var isAnimate = false
+    @State private var animationAmount = 1
+    
+    var animation: Animation {
+        Animation.easeInOut
+    }
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .center) {
-                    if isShowingRed {
+                    VStack {
                         AlbumCoverCell()
-//                            .transition(.asymmetric(insertion: .identity, removal: .slide))
-                            .transition(.scale)
-                    }else {
-                        AlbumCoverCell()
-                    }
+                            .frame(width: isAnimate ? 300 : 250, height: isAnimate ? 300 : 250)
+                            .scaleEffect(isAnimate ? 1 : 0.9)
+                            .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.5))
+                    }.padding()
+                    VStack {
                     Text("The Doors")
                         .padding(.top, 7)
                         .padding(.bottom, 1)
@@ -32,11 +37,12 @@ struct AlbumView: View {
                     Text("Rock • 1967")
                         .font(.caption.bold())
                         .foregroundColor(.secondary)
+                    }
                     HStack {
                         Button(action: {
                             self.isPlaying.toggle()
-                            withAnimation(.easeOut(duration: 1.0)) {
-                                isShowingRed.toggle()
+                            withAnimation(.easeOut.speed(1.0)) {
+                                isAnimate.toggle()
                             }
                         } , label: { Label(isPlaying ? "Pause" : "Lire", systemImage: isPlaying ? "pause.fill" : "play.fill")
                         })
@@ -140,6 +146,7 @@ struct ButtonLabel: View {
 struct ButtonStyling: ViewModifier {
     func body(content: Content) -> some View {
         content
+            .padding(20)
             .foregroundColor(Color.pink)
             .font(.title3)
             .frame(width: 165, height: 50)
